@@ -27,7 +27,7 @@ if ticker and start_date and end_date:
         st.subheader("Price Line Chart")
 
         # Drop NaNs and ensure index is datetime
-        data = data.dropna(subset=["Close"])
+        #data = data.dropna(subset=["Close"])
         data.index = pd.to_datetime(data.index)
         st.line_chart(data[["Close"]])
        
