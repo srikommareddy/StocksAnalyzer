@@ -18,7 +18,8 @@ end_date = st.date_input("To date")
 # Fetch and display data
 if ticker and start_date and end_date:
     data = yf.download(ticker, start=start_date, end=end_date)
-    
+    data.index = pd.to_datetime(data.index)
+
     if not data.empty:
         st.subheader("Historical Prices")
         st.dataframe(data)
