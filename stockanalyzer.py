@@ -29,13 +29,8 @@ if ticker and start_date and end_date:
         # Drop NaNs and ensure index is datetime
         data = data.dropna(subset=["Close"])
         data.index = pd.to_datetime(data.index)
-
-        # Plot if data exists
-        if not data.empty and "Close" in data.columns:
-            st.line_chart(data[["Close"]])
-        else:
-            st.warning("No valid closing price data available to plot.")
-
+        st.line_chart(data[["Close"]])
+       
 
         if st.button("Analyze"):
             # Compute percentage changes
