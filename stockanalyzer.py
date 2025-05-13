@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[ ]:
-
-
 import streamlit as st
 import yfinance as yf
 import pandas as pd
@@ -18,19 +12,13 @@ end_date = st.date_input("To date")
 # Fetch and display data
 if ticker and start_date and end_date:
     data = yf.download(ticker, start=start_date, end=end_date)
-    #data.index = pd.to_datetime(data.index)
-
+    
     if not data.empty:
         st.subheader("Historical Prices")
         st.dataframe(data)
 
         st.subheader("Price Line Chart")
-
-        # Drop NaNs and ensure index is datetime
-        #data = data.dropna(subset=["Close"])
-        data.index = pd.to_datetime(data.index)
-        st.line_chart(data[["Close"]])
-       
+        st.line_chart(data["Close"])
 
         if st.button("Analyze"):
             # Compute percentage changes
