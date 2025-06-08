@@ -2,14 +2,19 @@ import streamlit as st
 import yfinance as yf
 import pandas as pd
 
-# Auto-refresh every 2 minutes using meta refresh tag
+# ✅ MUST be the first Streamlit command
+st.set_page_config(page_title="NSE Live Stock Monitor", layout="wide")
+
+# Auto-refresh using HTML meta tag
 refresh_interval = 120  # seconds
 st.markdown(f"""
     <meta http-equiv="refresh" content="{refresh_interval}">
 """, unsafe_allow_html=True)
 
-#st.set_page_config(page_title="NSE Live Stock Monitor", layout="wide")
 st.title("📈 NSE Live Stock Dashboard")
+
+
+
 
 # Input for up to 10 stock symbols
 default_stocks = "RELIANCE.NS, TCS.NS, INFY.NS"
