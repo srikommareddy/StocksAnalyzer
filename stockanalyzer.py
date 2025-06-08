@@ -8,7 +8,7 @@ st.markdown(f"""
     <meta http-equiv="refresh" content="{refresh_interval}">
 """, unsafe_allow_html=True)
 
-st.set_page_config(page_title="NSE Live Stock Monitor", layout="wide")
+#st.set_page_config(page_title="NSE Live Stock Monitor", layout="wide")
 st.title("📈 NSE Live Stock Dashboard")
 
 # Input for up to 10 stock symbols
